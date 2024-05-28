@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="zstyle.css"/>
+    <title>Web Design Mastery | Responsive Portfolio</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+        :root {
+          --primary-color: #a855f7;
+          --primary-color-dark: #9333ea;
+          --secondary-color: #ca8a04;
+          --text-dark: #1f2937;
+          --text-light: #6b7280;
+          --extra-light: #faf5ff;
+          --max-width: 1200px;
+        }
+
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        .about-section {
+          padding: 50px 20px;
+          background-color: var(--extra-light);
+          color: var(--text-dark);
+        }
+
+        .about-section h2 {
+          font-size: 2rem;
+          margin-top: 40px;
+          margin-left: 80px;
+        }
+
+        .about-section p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          margin-left: 80px;
+          margin-bottom: 20px;
+        }
+
+        .education-details {
+          margin-left: 80px;
+          margin-bottom: 310px;
+        }
+
+        .education-details h3 {
+          font-size: 1.25rem;
+          margin-top: 20px;
+        }
+
+        .education-box {
+          background-color: white;
+          border: 1px solid var(--text-light);
+          border-radius: 10px;
+          padding: 10px; /* Reduced from 20px to 10px */
+          margin-bottom: 10px; /* Reduced from 20px to 10px */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+        }
+
+        .education-box p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          margin: 0; /* Remove any default margins */
+          padding-right: 50px;
+          margin-bottom: 0px;
+        }
+
+        .education-box:hover {
+          transform: scale(1.05);
+        }
+
+        .projects-section {
+          padding: 50px 20px;
+          background-color: var(--extra-light);
+          color: var(--text-dark);
+        }
+
+        .projects-section h2 {
+          font-size: 2rem;
+          margin-top: 40px;
+          margin-left: 80px;
+        }
+
+        .projects-section .project-box {
+          margin: 40px 80px 40px 80px;
+          padding: 20px;
+          background-color: white;
+          border: 1px solid var(--text-light);
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease;
+        }
+
+        .projects-section .project-box h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+
+        .projects-section .project-box p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+
+        .project-box:hover {
+          transform: scale(1.05);
+        }
+
+        .certificates-section {
+          padding: 50px 20px;
+          background-color: var(--extra-light);
+          color: var(--text-dark);
+        }
+
+        .certificates-section h2 {
+          font-size: 2rem;
+          margin-top: 40px;
+          margin-left: 80px;
+        }
+
+        .certificates-section .certificate-box {
+          margin: 20px 80px 20px 80px;
+          padding: 20px;
+          background-color: white;
+          border: 1px solid var(--text-light);
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease;
+        }
+
+        .certificates-section .certificate-box h3 {
+          font-size: 1.25rem;
+          margin-bottom: 10px;
+        }
+
+        .certificates-section .certificate-box p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+
+        .certificate-box:hover {
+          transform: scale(1.05);
+        }
+
+        body {
+          font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #ffffff;
+          z-index: 99;
+        }
+
+        .nav__content {
+          max-width: var(--max-width);
+          margin: auto;
+          padding: 1.5rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        nav .logo a {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--primary-color);
+          transition: 0.3s;
+        }
+
+        nav .logo a:hover {
+          color: var(--primary-color-dark);
+        }
+
+        nav .checkbox {
+          display: none;
+        }
+
+        nav input {
+          display: none;
+        }
+
+        nav .checkbox i {
+          font-size: 2rem;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          list-style: none;
+          transition: left 0.3s;
+        }
+
+        ul li a {
+          padding: 0.5rem 1rem;
+          border: 2px solid transparent;
+          text-decoration: none;
+          font-weight: 600;
+          color: var(--text-dark);
+          transition: 0.3s;
+        }
+
+        ul li a:hover {
+          border-top-color: var(--secondary-color);
+          border-bottom-color: var(--secondary-color);
+          color: var(--secondary-color);
+        }
+
+        .section {
+          background-color: var(--extra-light);
+        }
+
+        .section__container {
+          min-height: 100vh;
+          max-width: var(--max-width);
+          margin: auto;
+          padding: 1rem;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 4rem;
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .subtitle {
+          letter-spacing: 2px;
+          color: var(--text-light);
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        .title {
+          font-size: 2.5rem;
+          font-weight: 400;
+          line-height: 3rem;
+          color: var(--text-dark);
+          margin-bottom: 1rem;
+        }
+
+        .title span {
+          font-weight: 600;
+        }
+
+        .typing-effect {
+          color: green;
+        }
+
+        .description {
+          line-height: 1.5rem;
+          color: var(--text-light);
+          margin-bottom: 2rem;
+        }
+
+        .action__btns {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .action__btns button {
+          font-size: 1rem;
+          font-weight: 600;
+          letter-spacing: 2px;
+          padding: 1rem 2rem;
+          outline: none;
+          border: 2px solid var(--primary-color);
+          border-radius: 10px;
+          transition: 0.3s;
+          cursor: pointer;
+        }
+
+        .hire__me {
+          background-color: var(--primary-color);
+          color: #ffffff;
+        }
+
+        .hire__me:hover {
+          background-color: #ffffff;
+          color: var(--primary-color);
+        }
+
+        .image {
+          display: grid;
+          place-items: center;
+        }
+
+        .image img {
+          width: min(25rem, 90%);
+          border-radius: 100%;
+          margin-top: 60px;
+          transition: transform 0.3s ease;
+        }
+
+        .image img:hover {
+          transform: scale(1.1);
+        }
+
+        .contact-section {
+          padding: 50px 20px;
+          background-color: var(--extra-light);
+          color: var(--text-dark);
+          text-align: center;
+        }
+
+        .contact-section h2 {
+          font-size: 2rem;
+          margin-top: 40px;
+        }
+
+        .contact-icons {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          margin-top: 20px;
+        }
+
+        .contact-icons a {
+          font-size: 2rem;
+          color: var(--text-dark);
+          transition: color 0.3s;
+        }
+
+        .contact-icons a:hover {
+          color: var(--primary-color);
+        }
+
+        .contact-email {
+          margin-top: 20px;
+          font-size: 1rem;
+          border: 1px solid var(--text-light);
+          padding: 10px;
+          border-radius: 5px;
+          display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+          nav .checkbox {
+            display: block;
+          }
+
+          ul {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            width: 100%;
+            height: 100vh;
+          }
+
+          ul li a {
+            font-size: 1.5rem;
+          }
+
+          #click:checked ~ ul {
+            left: 0;
+          }
+
+          .section__container {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+
+          .about-section {
+            text-align: center;
+          }
+
+          .projects-section {
+            text-align: center;
+          }
+
+          .certificates-section {
+            text-align: center;
+          }
+
+          .contact-section {
+            text-align: center;
+          }
+        }
+
+        @media screen and (max-width: 450px) {
+          .title {
+            font-size: 2rem;
+            line-height: 2.5rem;
+          }
+
+          .projects-section .project-box {
+            margin: 20px 40px 20px 40px;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__content">
+        <div class="logo">
+          <a href="#">Portfolio</a>
+        </div>
+        <input type="checkbox" id="click" />
+        <label for="click" class="checkbox">
+          <i class="ri-menu-3-line"></i>
+        </label>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="section__container">
+        <div class="content">
+          <p class="subtitle">HELLO</p>
+          <h1 class="title">
+            I'm <span> Bandaru Harsha</span><br />
+            a <span class="typing-effect"></span>
+          </h1>
+          <p class="description">
+            Welcome to my web developer portfolio! I'm Harsha, a skilled and
+            creative web developer with a passion for creating beautiful,
+            responsive, and user-friendly websites. I've worked on a variety of
+            web projects, ranging from personal blogs to e-commerce platforms.
+          </p>
+          <div class="action__btns">
+            <a href="resume.pdf.pdf" target="_blank" download><button class="hire__me">Download Resume</button></a>
+          </div>
+        </div>
+        <div class="image">
+          <img src="profile.jpg" alt="profile" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>About Me</h2>
+      <p>
+        I am a web developer with a deep passion for creating responsive and engaging web experiences. With a background in design and coding, I have the skills and creativity to bring projects to life. I enjoy tackling new challenges and continuously learning about the latest trends and technologies in web development.
+      </p>
+      <div class="education-details">
+        <h3>Education</h3>
+        <div class="education-box">
+          <p><strong>Bachelor of Engineering</strong><br />
+          SIMATS Engineering College<br />
+          CGPA: 8.8<br />
+          2021 - 2025
+          </p>
+        </div>
+        <div class="education-box">
+          <p><strong>Intermediate</strong><br />
+          Sri Chaitanya Junior College<br />
+          GPA: 88%<br />
+          2019 - 2021
+          </p>
+        </div>
+        <div class="education-box">
+          <p><strong>10th Class</strong><br />
+          Sri Chaitanya School<br />
+          GPA: 9.0 Points<br />
+          2018 - 2019
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <h2>Projects</h2>
+      <div class="project-box">
+        <h3>Smart Irrigation System Based on IoT</h3>
+        <p>
+          Developed a smart irrigation system using IoT technology to optimize water usage for agricultural fields. The system monitors soil moisture levels and automates water delivery to ensure efficient irrigation.
+        </p>
+      </div>
+      <div class="project-box">
+        <h3>Books Sales and Rating Prediction Using Deep Learning Algorithm</h3>
+        <p>
+          Created a predictive model using deep learning algorithms to forecast book sales and ratings. The model helps in understanding market trends and making data-driven decisions for inventory management.
+        </p>
+      </div>
+    </section>
+
+    <section id="certificates" class="certificates-section">
+      <h2>Certificates</h2>
+      <div class="certificate-box">
+        <h3>AWS Cloud Practitioner Essentials Certification</h3>
+        <p>Earned a certification from AWS for understanding cloud concepts, AWS services, security, architecture, pricing, and support.</p>
+      </div>
+      <div class="certificate-box">
+        <h3>Introduction to Cybersecurity by Cisco Networking Academy</h3>
+        <p>Completed a course on cybersecurity fundamentals, covering topics such as threats, attacks, and defenses.</p>
+      </div>
+      <div class="certificate-box">
+        <h3>Full-Stack Development by Skillup</h3>
+        <p>Acquired skills in full-stack development, including front-end and back-end technologies, databases, and version control.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contact</h2>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/haarsha_23/" target="_blank"><i class="ri-instagram-line"></i></a>
+        <a href="https://www.linkedin.com/in/harsha-bandaru-64a20126b/" target="_blank"><i class="ri-linkedin-box-line"></i></a>
+        <a href="https://wa.me/+919908913768" target="_blank"><i class="ri-whatsapp-line"></i></a>
+        <a href="https://github.com/harsha20235" target="_blank"><i class="ri-github-line"></i></a>
+      </div>
+      <div class="contact-email">
+        harshabandaru63@gmail.com
+      </div>
+    </section>
+
+    <script>
+        const words = ["Web Developer", "Designer", "Ethical Hacker"];
+        let i = 0;
+        let timer;
+      
+        function typingEffect() {
+          let word = words[i].split("");
+          const typingSpan = document.querySelector(".typing-effect");
+      
+          function loopTyping() {
+            if (word.length > 0) {
+              typingSpan.innerHTML += word.shift();
+            } else {
+              deletingEffect();
+              return;
+            }
+            timer = setTimeout(loopTyping, 200);
+          }
+      
+          loopTyping();
+        }
+      
+        function deletingEffect() {
+          const word = words[i].split("");
+          const typingSpan = document.querySelector(".typing-effect");
+      
+          function loopDeleting() {
+            if (word.length > 0) {
+              word.pop();
+              typingSpan.innerHTML = word.join("");
+            } else {
+              if (words.length > (i + 1)) {
+                i++;
+              } else {
+                i = 0;
+              }
+              typingEffect();
+              return;
+            }
+            timer = setTimeout(loopDeleting, 100);
+          }
+      
+          loopDeleting();
+        }
+      
+        document.addEventListener("DOMContentLoaded", typingEffect);
+    </script>
+  </body>
+</html>
